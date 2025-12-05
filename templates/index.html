@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aether AI | Local Generative Suite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-infinity"></i>
+                <span>Aether AI</span>
+            </div>
+            <nav class="nav-menu">
+                <div class="nav-item active" data-mode="chat">
+                    <i class="fa-regular fa-comments"></i>
+                    <span>Chat</span>
+                </div>
+                <div class="nav-item" data-mode="image">
+                    <i class="fa-regular fa-image"></i>
+                    <span>Image Gen</span>
+                </div>
+                <div class="nav-item" data-mode="video">
+                    <i class="fa-solid fa-video"></i>
+                    <span>Video Gen</span>
+                </div>
+            </nav>
+            <div class="status-panel">
+                <div class="status-indicator online"></div>
+                <span id="system-status">System Ready</span>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="chat-header">
+                <h2 id="current-mode-title">Conversational AI</h2>
+                <div class="header-controls">
+                    <button class="icon-btn"><i class="fa-solid fa-gear"></i></button>
+                </div>
+            </header>
+
+            <div class="chat-container" id="chat-container">
+                <div class="message system">
+                    <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+                    <div class="content">
+                        <p>Welcome to Aether AI. I run entirely locally on your machine.</p>
+                        <p>Select a mode from the sidebar or just start typing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <textarea id="user-input" placeholder="Type your prompt here..." rows="1"></textarea>
+                    <button id="send-btn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="input-info">
+                    <span id="processing-time"></span>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
